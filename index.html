@@ -1,0 +1,1375 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="image/Keris logo rmv.png" type="image/x-icon">
+    <title>Budaya Jawa Tengah</title>
+    <link rel="stylesheet" href="bootstrap-5.3.8-dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=EB+Garamond:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+    <style>
+        /* ==============================
+           ROOT PALETTE — DARK BATIK GOLD
+           ============================== */
+        :root {
+            --gold:        #c9922a;
+            --gold-light:  #f0c060;
+            --gold-pale:   #f5e6c8;
+            --dark-bg:     #0e0a04;
+            --dark-mid:    #1a1105;
+            --dark-card:   #1f1507;
+            --dark-border: #3a2a0e;
+            --cream:       #f8f0de;
+            --text-body:   #d4b97a;
+            --text-muted:  #8a7050;
+        }
+
+        body { background: var(--dark-bg); color: var(--text-body); }
+        .font-cinzel { font-family: 'Cinzel', serif; }
+        .font-garamond { font-family: 'EB Garamond', serif; }
+
+        /* ==============================
+           SCROLL REVEAL — BIDIRECTIONAL
+           ============================== */
+        [data-reveal] { opacity: 0; will-change: opacity, transform; }
+        [data-reveal="fade-up"]    { transform: translateY(50px);  transition: opacity 0.65s ease, transform 0.65s ease; }
+        [data-reveal="fade-down"]  { transform: translateY(-40px); transition: opacity 0.65s ease, transform 0.65s ease; }
+        [data-reveal="fade-left"]  { transform: translateX(-50px); transition: opacity 0.7s ease, transform 0.7s ease; }
+        [data-reveal="fade-right"] { transform: translateX(50px);  transition: opacity 0.7s ease, transform 0.7s ease; }
+        [data-reveal="fade-in"]    { transform: scale(0.88);       transition: opacity 0.6s ease, transform 0.6s cubic-bezier(.34,1.56,.64,1); }
+        [data-reveal="zoom-in"]    { transform: scale(0.7);        transition: opacity 0.7s ease, transform 0.7s cubic-bezier(.34,1.4,.64,1); }
+        [data-reveal="flip-x"]     { transform: rotateX(60deg); transform-origin: top center; transition: opacity 0.65s ease, transform 0.65s ease; }
+        [data-reveal="slide-up"]   { transform: translateY(80px) skewY(3deg); transition: opacity 0.7s ease, transform 0.7s cubic-bezier(.25,.8,.25,1); }
+        [data-reveal="swing"]      { transform: rotate(-6deg) translateX(-20px); transform-origin: left center; transition: opacity 0.65s ease, transform 0.65s cubic-bezier(.34,1.56,.64,1); }
+        [data-reveal="blur-in"]    { filter: blur(8px); transform: scale(1.04); transition: opacity 0.7s ease, transform 0.7s ease, filter 0.7s ease; }
+        [data-reveal].revealed     { opacity: 1; transform: none; filter: none; }
+        [data-reveal].hiding       { transition-duration: 0.35s !important; transition-delay: 0s !important; }
+        [data-delay="100"] { transition-delay: 0.1s; }
+        [data-delay="200"] { transition-delay: 0.2s; }
+        [data-delay="300"] { transition-delay: 0.3s; }
+        [data-delay="400"] { transition-delay: 0.4s; }
+        [data-delay="500"] { transition-delay: 0.5s; }
+        [data-delay="600"] { transition-delay: 0.6s; }
+
+        /* ==============================
+           PARTICLE / FLOATING ORNAMENT
+           ============================== */
+        .float-ornament {
+            position: absolute;
+            border-radius: 50%;
+            background: rgba(201,146,42,0.08);
+            animation: floatOrb 8s ease-in-out infinite;
+            pointer-events: none;
+        }
+        @keyframes floatOrb {
+            0%,100% { transform: translateY(0) scale(1); }
+            50%      { transform: translateY(-18px) scale(1.05); }
+        }
+
+        /* NAVBAR */
+        .navbar-batik {
+            background-color: #0e0a04 !important;
+            border-bottom: 1px solid var(--dark-border);
+        }
+
+        /* ==============================
+           HERO — TYPING FIX
+           ============================== */
+        .hero-section {
+            background-image: url('image/bg wayang.jpeg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            position: relative;
+            min-height: 520px;
+        }
+        .hero-section::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(120deg, rgba(10,6,0,0.82) 55%, rgba(10,6,0,0.4) 100%);
+            z-index: 0;
+        }
+        .hero-section > * { position: relative; z-index: 1; }
+
+        /* --- TYPING WRAPPER: fixed height agar tidak glitch --- */
+        .hero-typing-wrapper {
+            height: 2.4rem;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+        }
+        .hero-typing-wrapper h1 {
+            margin: 0;
+            line-height: 1;
+            white-space: nowrap;
+            font-size: 1.7rem !important;
+        }
+        /* Cursor blink */
+        #heroTyping::after {
+            content: '|';
+            animation: cursorBlink 0.7s step-end infinite;
+            color: var(--gold-light);
+            margin-left: 2px;
+        }
+        @keyframes cursorBlink {
+            0%,100% { opacity: 1; }
+            50%      { opacity: 0; }
+        }
+
+        .section1-1 { margin-left: 290px; }
+        .section1-2 { margin-left: 90px; }
+        .ilustration-1 { height: 400px; }
+        .ilustration-2 { width: 250px; }
+        .ilustration-3 { height: 250px; }
+
+        .tech-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: rgba(201,146,42,0.15);
+            border: 1px solid rgba(201,146,42,0.4);
+            border-radius: 20px;
+            padding: 4px 14px;
+            font-size: 0.78rem;
+            letter-spacing: 0.05em;
+            color: var(--gold-light);
+            margin-bottom: 14px;
+        }
+        .tech-badge .dot {
+            width: 6px; height: 6px;
+            background: #4eff91;
+            border-radius: 50%;
+            animation: pulse-dot 1.5s ease-in-out infinite;
+        }
+        @keyframes pulse-dot {
+            0%,100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.5; transform: scale(1.4); }
+        }
+
+        /* SECTION 2 — PORTAL */
+        .section-portal-bg {
+            background-image: url('image/background slide 2.jpeg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            position: relative;
+        }
+        .section-portal-bg::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: rgba(8,4,0,0.70);
+            z-index: 0;
+        }
+        .section-portal-bg > * { position: relative; z-index: 1; }
+
+        .search-wrapper { position: relative; }
+        .search-wrapper .form-control {
+            border-radius: 0;
+            border: 1.5px solid var(--dark-border);
+            background: rgba(255,255,255,0.06);
+            color: var(--cream);
+            padding-left: 40px;
+        }
+        .search-wrapper .form-control::placeholder { color: var(--text-muted); }
+        .search-wrapper .form-control:focus {
+            border-color: var(--gold);
+            box-shadow: 0 0 0 3px rgba(201,146,42,0.2);
+            background: rgba(255,255,255,0.1);
+        }
+        .search-wrapper .search-icon {
+            position: absolute; left: 12px; top: 50%;
+            transform: translateY(-50%);
+            color: var(--text-muted); font-size: 0.9rem;
+        }
+        #searchResult { font-size: 0.85rem; color: var(--gold-light); min-height: 20px; }
+
+        /* ==============================
+           SECTION 3 — KATEGORI
+           ============================== */
+        .section-kategori-cards {
+            background-color: var(--dark-bg);
+            background-image: url('image/background slide ke 3 baru ke 2.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            position: relative;
+            padding: 80px 0;
+        }
+        .section-kategori-cards::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: rgba(8,4,0,0.82);
+            z-index: 0;
+        }
+        .section-kategori-cards > * { position: relative; z-index: 1; }
+
+        .ornament-divider {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            justify-content: center;
+            margin: 8px 0 40px;
+        }
+        .ornament-divider::before,
+        .ornament-divider::after {
+            content: '';
+            flex: 1;
+            max-width: 80px;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--gold));
+        }
+        .ornament-divider::after {
+            background: linear-gradient(270deg, transparent, var(--gold));
+        }
+        .ornament-diamond {
+            width: 8px; height: 8px;
+            background: var(--gold);
+            transform: rotate(45deg);
+        }
+
+        .kategori-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 24px;
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+        .kategori-card {
+            background: var(--dark-card);
+            border: 1px solid var(--dark-border);
+            position: relative;
+            overflow: visible;
+            transition: transform 0.35s ease, border-color 0.35s ease, box-shadow 0.35s ease;
+            cursor: pointer;
+        }
+        .kategori-card::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(180deg, transparent 40%, rgba(201,146,42,0.08) 100%);
+            pointer-events: none;
+            z-index: 0;
+        }
+        .kategori-card::after {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, var(--gold), transparent);
+            opacity: 0;
+            transition: opacity 0.35s;
+            z-index: 0;
+        }
+        .kategori-card:hover {
+            transform: translateY(-8px);
+            border-color: var(--gold);
+            box-shadow: 0 20px 60px rgba(201,146,42,0.2), 0 0 0 1px rgba(201,146,42,0.3);
+        }
+        .kategori-card:hover::after { opacity: 1; }
+
+        .corner-ornament {
+            position: absolute;
+            width: 28px; height: 28px;
+            opacity: 0.5;
+            z-index: 2;
+            transition: opacity 0.35s ease, transform 0.35s ease;
+        }
+        .corner-ornament.tl { top: 6px; left: 6px; }
+        .corner-ornament.tr { top: 6px; right: 6px; transform: scaleX(-1); }
+        .corner-ornament.bl { bottom: 6px; left: 6px; transform: scaleY(-1); }
+        .corner-ornament.br { bottom: 6px; right: 6px; transform: scale(-1,-1); }
+        .kategori-card:hover .corner-ornament { opacity: 1; }
+        .kategori-card:hover .corner-ornament.tl { transform: translate(-2px,-2px); }
+        .kategori-card:hover .corner-ornament.tr { transform: scaleX(-1) translate(-2px,0) translateY(-2px); }
+        .kategori-card:hover .corner-ornament.bl { transform: scaleY(-1) translate(0,-2px) translateX(-2px); }
+        .kategori-card:hover .corner-ornament.br { transform: scale(-1,-1) translate(-2px,-2px); }
+
+        .kategori-img-area {
+            position: relative;
+            height: 180px;
+            margin: 16px 16px 0;
+            background: transparent;
+        }
+        .kategori-img-area .photo-clip {
+            position: absolute;
+            top: 6px; left: 6px; right: 6px; bottom: 6px;
+            overflow: hidden;
+            background: linear-gradient(160deg, #1a1105, #2a1a08);
+            z-index: 1;
+        }
+        .kategori-img-area .cat-photo {
+            position: absolute;
+            inset: 0;
+            width: 100%; height: 100%;
+            object-fit: cover;
+            filter: brightness(0.72) sepia(0.2);
+            transition: filter 0.4s ease, transform 0.4s ease;
+            z-index: 1;
+            display: block;
+        }
+        .kategori-card:hover .kategori-img-area .cat-photo {
+            filter: brightness(0.95) sepia(0.05);
+            transform: scale(1.06);
+        }
+        .kategori-img-area .img-placeholder {
+            position: absolute; inset: 0;
+            display: flex; flex-direction: column;
+            align-items: center; justify-content: center;
+            gap: 6px;
+            color: rgba(201,146,42,0.45);
+            font-family: 'Cinzel', serif;
+            font-size: 0.68rem; letter-spacing: .08em; text-transform: uppercase;
+            border: 1px dashed rgba(201,146,42,0.3);
+            z-index: 1;
+        }
+        .img-placeholder-icon { font-size: 2rem; opacity: 0.4; line-height: 1; }
+        .kategori-img-area .bingkai-overlay {
+            position: absolute;
+            top: -10px; left: -10px;
+            width: calc(100% + 20px); height: calc(100% + 20px);
+            object-fit: fill; z-index: 3; pointer-events: none;
+            filter: drop-shadow(0 4px 12px rgba(201,146,42,0.25)) brightness(0.9);
+            transform: scale(1); transform-origin: center center;
+            transition: filter 0.4s ease, transform 0.4s ease;
+        }
+        .kategori-card:hover .kategori-img-area .bingkai-overlay {
+            filter: drop-shadow(0 0 10px rgba(240,192,96,0.7))
+                    drop-shadow(0 0 22px rgba(201,146,42,0.5))
+                    brightness(1.15);
+            transform: scale(1.04);
+        }
+        .kategori-img-area .img-fade {
+            position: absolute; bottom: 0; left: 0; right: 0; height: 40px;
+            background: linear-gradient(transparent, var(--dark-card));
+            z-index: 2; pointer-events: none;
+        }
+
+        .kategori-card-body { padding: 20px 20px 24px; position: relative; z-index: 1; }
+        .kategori-title {
+            font-family: 'Cinzel', serif; font-size: 1rem; font-weight: 700;
+            color: var(--gold-light); text-align: center; letter-spacing: 0.08em;
+            margin-bottom: 16px; text-transform: uppercase;
+        }
+        .kategori-list { list-style: none; padding: 0; margin: 0 0 20px; }
+        .kategori-list li {
+            padding: 6px 0; font-family: 'EB Garamond', serif; font-size: 0.95rem;
+            color: var(--text-body); display: flex; align-items: center; gap: 8px;
+            border-bottom: 1px solid rgba(58,42,14,0.5);
+        }
+        .kategori-list li:last-child { border-bottom: none; }
+        .kategori-list li::before {
+            content: ''; width: 5px; height: 5px;
+            background: var(--gold); transform: rotate(45deg); flex-shrink: 0;
+        }
+        .btn-jelajahi {
+            display: block; width: 100%; padding: 9px 0;
+            background: transparent; border: 1px solid var(--gold);
+            color: var(--gold-light); font-family: 'Cinzel', serif;
+            font-size: 0.75rem; letter-spacing: 0.12em; text-transform: uppercase;
+            text-decoration: none; text-align: center;
+            transition: background 0.25s, color 0.25s; cursor: pointer;
+        }
+        .btn-jelajahi:hover { background: var(--gold); color: var(--dark-bg); }
+
+        .section-title-gold {
+            font-family: 'Cinzel', serif; font-weight: 700;
+            color: var(--gold-light); letter-spacing: 0.04em;
+        }
+        .section-subtitle {
+            color: var(--text-muted); font-family: 'EB Garamond', serif;
+            font-size: 1.05rem; letter-spacing: 0.02em;
+        }
+
+        /* SECTION 4 — CTA */
+        .section-cta {
+            background: var(--dark-mid);
+            border-top: 1px solid var(--dark-border);
+            border-bottom: 1px solid var(--dark-border);
+        }
+        .cta-card {
+            background: linear-gradient(135deg, #1f1507 0%, #0e0a04 100%);
+            border: 1px solid var(--dark-border);
+            position: relative; overflow: hidden;
+        }
+        .cta-card::before {
+            content: '';
+            position: absolute; top: -60px; right: -60px;
+            width: 220px; height: 220px; border-radius: 50%;
+            background: radial-gradient(circle, rgba(201,146,42,0.12) 0%, transparent 70%);
+            pointer-events: none;
+        }
+        .ai-chip {
+            display: inline-flex; align-items: center; gap: 8px;
+            background: rgba(201,146,42,0.1); border: 1px solid rgba(201,146,42,0.3);
+            border-radius: 6px; padding: 8px 16px;
+            font-size: 0.85rem; color: var(--gold-light); margin-top: 16px;
+        }
+
+        /* SECTION 5 — FITUR */
+        .section-fitur { background: var(--dark-bg); }
+        .section-fitur .text-muted { color: var(--text-muted) !important; }
+        .section-fitur h1, .section-fitur h5 { color: var(--cream); }
+        .section-fitur p { color: var(--text-body); }
+
+        .tech-progress-label {
+            display: flex; justify-content: space-between;
+            font-size: 0.82rem; color: var(--text-muted); margin-bottom: 5px;
+        }
+        .progress {
+            height: 6px; border-radius: 0; margin-bottom: 16px;
+            background: rgba(58,42,14,0.8);
+        }
+        .progress-bar-gold { background: linear-gradient(90deg, var(--gold), var(--gold-light)); }
+
+        /* Animated progress bar on scroll */
+        .progress-bar { width: 0 !important; transition: width 1.2s cubic-bezier(.4,0,.2,1); }
+        .progress-bar.animated { width: var(--target-width) !important; }
+
+        .stats-row {
+            background: var(--dark-card); border: 1px solid var(--dark-border);
+            border-radius: 0; padding: 16px 10px; text-align: center;
+            transition: border-color 0.3s, transform 0.3s;
+        }
+        .stats-row:hover { border-color: var(--gold); transform: translateY(-4px); }
+        .stat-counter {
+            font-family: 'Cinzel', serif; font-size: 2rem; font-weight: 700;
+            color: var(--gold-light); line-height: 1;
+        }
+        .stat-label {
+            font-size: 0.75rem; color: var(--text-muted); letter-spacing: 0.08em;
+            text-transform: uppercase; margin-top: 4px;
+        }
+
+        /* ILUSTRASI GLOW */
+        .ilustration-glow {
+            display: block; position: relative;
+            transition: filter 0.5s ease, transform 0.5s ease;
+            filter:
+                drop-shadow(0 0 18px rgba(201,146,42,0.35))
+                drop-shadow(0 0 40px rgba(201,146,42,0.15));
+            animation: ilustGlowPulse 4s ease-in-out infinite;
+        }
+        @keyframes ilustGlowPulse {
+            0%,100% {
+                filter: drop-shadow(0 0 18px rgba(201,146,42,0.35)) drop-shadow(0 0 40px rgba(201,146,42,0.15)) brightness(1);
+            }
+            50% {
+                filter: drop-shadow(0 0 28px rgba(240,192,96,0.55)) drop-shadow(0 0 60px rgba(201,146,42,0.28)) brightness(1.08);
+            }
+        }
+        .ilustration-glow:hover {
+            animation-play-state: paused;
+            filter:
+                drop-shadow(0 0 30px rgba(240,192,96,0.85))
+                drop-shadow(0 0 70px rgba(201,146,42,0.55))
+                brightness(1.15);
+            transform: translateY(-6px) scale(1.03);
+        }
+
+        /* SECTION 6 — QUOTES */
+        .section-quotes { background: var(--dark-mid); border-top: 1px solid var(--dark-border); }
+        .portrait-frame-wrap {
+            position: relative; display: inline-block; width: 240px; height: 300px;
+        }
+        .portrait-frame-wrap .frame-img {
+            position: absolute; inset: 0; width: 100%; height: 100%;
+            object-fit: fill; z-index: 2; pointer-events: none;
+            filter: drop-shadow(0 8px 24px rgba(201,146,42,0.35));
+        }
+        .portrait-frame-wrap .portrait-photo {
+            position: absolute; top: 14%; left: 13%; width: 74%; height: 72%;
+            object-fit: cover; object-position: top center;
+            filter: sepia(0.2) contrast(1.08); z-index: 1;
+        }
+        .portrait-nameplate {
+            margin-top: 6px;
+            background: linear-gradient(90deg, transparent, rgba(201,146,42,0.2), transparent);
+            border-top: 1px solid rgba(201,146,42,0.4);
+            border-bottom: 1px solid rgba(201,146,42,0.4);
+            padding: 5px 12px; text-align: center;
+        }
+        .icon-quote {
+            font-size: 5em; color: var(--gold); margin-left: -10px; line-height: 1; opacity: 0.7;
+        }
+        .quote {
+            margin-top: -16px; margin-right: 80px;
+            color: var(--cream); font-family: 'EB Garamond', serif;
+            font-size: 1.5rem; font-style: italic; letter-spacing: .02em; line-height: 2.4rem;
+        }
+        .nav-tabs {
+            --bs-nav-tabs-border-color: var(--dark-border);
+            --bs-nav-tabs-link-active-border-color: var(--gold) var(--gold) var(--dark-mid);
+            --bs-nav-tabs-link-hover-border-color: var(--dark-border);
+            --bs-nav-tabs-link-active-bg: var(--dark-mid);
+            --bs-nav-tabs-link-active-color: var(--gold-light);
+        }
+        .nav-link { color: var(--text-muted); }
+        .nav-link:hover { color: var(--gold-light); }
+        .link-tab-title {
+            font-family: 'Cinzel', serif; font-size: 1rem; font-weight: 600;
+            letter-spacing: .04em; margin-bottom: 0.2rem; color: var(--gold-light);
+        }
+        .link-tab-desc { font-size: 0.85rem; letter-spacing: .005em; margin-bottom: 0; color: var(--text-muted); }
+        .picture-tab-title { font-family: 'Cinzel', serif; font-size: 1rem; font-weight: 700; color: var(--gold-light); }
+        .picture-tab-desc { font-size: 0.85rem; color: var(--text-muted); }
+
+        /* SECTION 7 — FAQ */
+        .section-faq { background: var(--dark-bg); border-top: 1px solid var(--dark-border); }
+        .section-faq .accordion-item {
+            background: var(--dark-card); border: 1px solid var(--dark-border);
+            border-radius: 0 !important; margin-bottom: 8px;
+        }
+        .section-faq .accordion-button {
+            background: var(--dark-card); color: var(--gold-pale);
+            font-family: 'EB Garamond', serif; font-size: 1.05rem;
+        }
+        .section-faq .accordion-button:not(.collapsed) {
+            background: rgba(201,146,42,0.08); color: var(--gold-light); box-shadow: none;
+        }
+        .section-faq .accordion-button::after {
+            filter: invert(0.7) sepia(1) hue-rotate(10deg);
+        }
+        .section-faq .accordion-body {
+            background: var(--dark-card); color: var(--text-body);
+            font-family: 'EB Garamond', serif; font-size: 1rem;
+            border-top: 1px solid var(--dark-border);
+        }
+
+        /* FOOTER */
+        footer.footer-custom { background: #070400; border-top: 1px solid var(--dark-border); }
+        .menu-footer {
+            display: block; text-decoration: none; color: rgba(201,146,42,0.6);
+            font-size: 0.9rem; padding: 2px 0; transition: color 0.2s;
+        }
+        .menu-footer:hover { color: var(--gold-light); }
+        .sosial-icon { font-size: 26px; transition: transform 0.25s; }
+        .sosial-icon:hover { color: var(--cream) !important; transform: translateY(-3px); }
+
+        /* ==============================
+           SECTION SHIMMER SEPARATOR
+           ============================== */
+        .gold-separator {
+            width: 100%; height: 1px;
+            background: linear-gradient(90deg, transparent 0%, var(--gold) 30%, var(--gold-light) 50%, var(--gold) 70%, transparent 100%);
+            animation: shimmerLine 3s ease-in-out infinite;
+            background-size: 200% 100%;
+        }
+        @keyframes shimmerLine {
+            0%   { background-position: 200% center; }
+            100% { background-position: -200% center; }
+        }
+
+        /* ==============================
+           NAVBAR BRAND LOGO ALIGNMENT
+           ============================== */
+        .navbar-brand-logo {
+            width: 26px;
+            height: 26px;
+            object-fit: contain;
+            vertical-align: middle;
+            margin-bottom: 2px;
+        }
+
+        /* RESPONSIVE */
+        @media only screen and (max-width: 768px) {
+            .kategori-grid { grid-template-columns: repeat(2, 1fr); gap: 14px; }
+            .section1-1 { margin-left: auto; margin-right: auto; margin-top: 30px; }
+            .section1-2 { margin-left: auto; margin-right: auto; text-align: center; }
+            .ilustration-1 { height: 280px; }
+            .portrait-frame-wrap { width: 160px; height: 210px; }
+            .quote { margin-right: 0; font-size: 1.2rem; line-height: 2rem; }
+            .hero-typing-wrapper { height: 2.6rem; }
+        }
+        @media only screen and (max-width: 480px) {
+            .kategori-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+<header class="container-fluid p-0">
+    <nav class="navbar fixed-top navbar-expand-lg navbar-batik" data-bs-theme="dark">
+      <div class="container-fluid">
+        <a class="navbar-brand font-cinzel text-warning d-flex align-items-center gap-2" href="#">
+            <img src="image/Keris logo rmv.png" alt="Logo Pesat" class="navbar-brand-logo">
+            JAWA TENGAH
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
+            <li class="nav-item"><a class="nav-link active" href="#">Beranda</a></li>
+            <li class="nav-item"><a class="nav-link" href="#">Tentang</a></li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Kategori Budaya</a>
+              <ul class="dropdown-menu dropdown-menu-dark" style="background:#1a1105; border-color: var(--dark-border);">
+                <li><a class="dropdown-item" href="#">Kesenian Tradisional</a></li>
+                <li><a class="dropdown-item" href="#">Pakaian Adat</a></li>
+                <li><hr class="dropdown-divider" style="border-color: var(--dark-border);"></li>
+                <li><a class="dropdown-item" href="#">Kuliner Khas</a></li>
+              </ul>
+            </li>
+            <li class="nav-item"><a class="nav-link" href="#">Digital Archive</a></li>
+            <li class="nav-item"><a class="nav-link" href="#">Edukasi</a></li>
+            <li class="nav-item"><a class="nav-link" href="#">Komunitas</a></li>
+          </ul>
+          <form class="d-flex" role="search">
+            <input class="form-control me-2" type="search" placeholder="Cari budaya..." style="background:rgba(255,255,255,0.07); border-color: var(--dark-border); color: var(--cream);"/>
+            <button class="btn btn-warning" type="submit" style="font-family:'Cinzel',serif; font-size:.8rem; letter-spacing:.08em;">Masuk</button>
+          </form>
+        </div>
+      </div>
+    </nav>
+</header>
+
+<main class="container-fluid" style="margin-top: 67.6px;">
+
+    <!-- SECTION 1: HERO -->
+    <section class="row hero-section text-white py-5">
+        <div class="col-sm-6 order-md-last" data-reveal="fade-left">
+            <div class="section1-2">
+                <img src="image/wayang rmx bg.png" class="img-fluid ilustration-1" alt="Wayang Kulit">
+            </div>
+        </div>
+        <div class="col-sm-6 d-flex align-items-center">
+            <div class="section1-1">
+                <div class="tech-badge mb-3" data-reveal="fade-up" data-delay="100">
+                    <span class="dot"></span>
+                    Platform Digital Budaya Aktif
+                </div>
+                <h1 class="mb-2 fw-bold" style="font-family:'Cinzel',serif; font-size:2.2rem; color:#fff;"
+                    data-reveal="fade-up" data-delay="200">Jelajahi Kekayaan</h1>
+
+                <!-- TYPING WRAPPER: fixed height, no overflow glitch -->
+                <div class="hero-typing-wrapper mb-4" data-reveal="fade-up" data-delay="300">
+                    <h1 class="fw-bold" style="font-family:'Cinzel',serif; font-size:2.2rem; color: var(--gold-light);">
+                        <span id="heroTyping"></span>
+                    </h1>
+                </div>
+
+                <p style="color: rgba(255,255,255,0.75); font-family:'EB Garamond',serif; font-size:1.1rem; max-width:420px;"
+                   data-reveal="fade-up" data-delay="400">
+                    Temukan adat istiadat, kuliner, pakaian daerah, dan kesenian Jawa Tengah yang telah didigitalisasi untuk generasi mendatang.
+                </p>
+                <div class="d-flex gap-3 mt-4 flex-wrap" data-reveal="fade-up" data-delay="500">
+                    <button class="btn btn-warning px-4 py-2" style="font-family:'Cinzel',serif; font-size:.82rem; letter-spacing:.08em;">Mulai Jelajahi &rarr;</button>
+                    <button class="btn px-4 py-2" style="font-family:'Cinzel',serif; font-size:.82rem; letter-spacing:.08em; border: 1px solid rgba(201,146,42,0.5); color: var(--gold-light); background:transparent;">Lihat Kategori</button>
+                </div>
+                <div class="d-flex gap-4 mt-5 flex-wrap" data-reveal="fade-up" data-delay="600">
+                    <div>
+                        <div style="font-family:'Cinzel',serif; font-size:1.6rem; color: var(--gold-light); font-weight:700;">1.247</div>
+                        <div style="font-size:.72rem; color: var(--text-muted); letter-spacing:.08em; text-transform:uppercase;">Pengunjung Aktif</div>
+                    </div>
+                    <div>
+                        <div style="font-family:'Cinzel',serif; font-size:1.6rem; color: var(--gold-light); font-weight:700;">1.820+</div>
+                        <div style="font-size:.72rem; color: var(--text-muted); letter-spacing:.08em; text-transform:uppercase;">Konten Digital</div>
+                    </div>
+                    <div>
+                        <div style="font-family:'Cinzel',serif; font-size:1.6rem; color: var(--gold-light); font-weight:700;">4</div>
+                        <div style="font-size:.72rem; color: var(--text-muted); letter-spacing:.08em; text-transform:uppercase;">Kategori Budaya</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="gold-separator"></div>
+
+    <!-- SECTION 2: SEARCH PORTAL -->
+    <section class="row py-5 section-portal-bg">
+        <div class="col text-center py-4">
+            <strong style="color: var(--gold); letter-spacing:.1em; font-family:'Cinzel',serif; font-size:.8rem; text-transform:uppercase;"
+                    data-reveal="zoom-in">Portal Budaya</strong>
+            <h1 class="text-white mt-2 mb-3" style="font-family:'Cinzel',serif;"
+                data-reveal="slide-up" data-delay="100">Temukan Warisan Budaya Jawa Tengah</h1>
+            <div class="mb-4" style="color: rgba(255,255,255,0.7); font-family:'EB Garamond',serif; font-size:1.1rem;"
+                 data-reveal="blur-in" data-delay="200">
+                Cari informasi adat, kuliner, kesenian, dan pakaian daerah secara digital
+            </div>
+            <div class="row justify-content-center" data-reveal="fade-up" data-delay="300">
+                <div class="col-sm-5">
+                    <div class="row">
+                        <div class="col-sm-9 mb-3">
+                            <div class="search-wrapper">
+                                <i class="bi bi-search search-icon"></i>
+                                <input type="text" class="form-control" id="budayaSearch" placeholder="Cari: batik, wayang, gudeg..." oninput="cariiBudaya(this.value)">
+                            </div>
+                            <div id="searchResult" class="mt-1 text-start ps-1"></div>
+                        </div>
+                        <div class="col-sm-3 mb-3">
+                            <button class="btn btn-warning w-100" style="font-family:'Cinzel',serif; font-size:.8rem; letter-spacing:.06em;">Cari</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <p style="color: rgba(255,255,255,0.5); font-size:.9rem;" data-reveal="fade-up" data-delay="400">
+                &#10022; Warisan Leluhur &nbsp;&middot;&nbsp; Didigitalisasi dengan Teknologi Modern
+            </p>
+        </div>
+    </section>
+
+    <div class="gold-separator"></div>
+
+    <!-- SECTION 3: KATEGORI BUDAYA -->
+    <section class="section-kategori-cards">
+        <div class="text-center mb-2">
+            <h2 class="section-title-gold" style="font-size:2rem; letter-spacing:.06em;"
+                data-reveal="slide-up">Kategori Budaya Jawa Tengah</h2>
+            <div class="ornament-divider" data-reveal="zoom-in" data-delay="100">
+                <div class="ornament-diamond"></div>
+                <div class="ornament-diamond" style="width:5px;height:5px; opacity:.5;"></div>
+                <div class="ornament-diamond"></div>
+            </div>
+            <p class="section-subtitle mb-0" data-reveal="fade-up" data-delay="200">Lima pilar budaya utama Jawa Tengah yang telah terdokumentasi secara digital</p>
+        </div>
+
+        <div class="kategori-grid mt-5">
+
+            <!-- KARTU 1: KESENIAN -->
+            <div class="kategori-card" data-reveal="slide-up" data-delay="100">
+                <svg class="corner-ornament tl" viewBox="0 0 28 28" fill="none"><path d="M2 26 L2 2 L26 2" stroke="#c9922a" stroke-width="1.5" fill="none"/><circle cx="2" cy="2" r="2" fill="#c9922a"/></svg>
+                <svg class="corner-ornament tr" viewBox="0 0 28 28" fill="none"><path d="M2 26 L2 2 L26 2" stroke="#c9922a" stroke-width="1.5" fill="none"/><circle cx="2" cy="2" r="2" fill="#c9922a"/></svg>
+                <svg class="corner-ornament bl" viewBox="0 0 28 28" fill="none"><path d="M2 26 L2 2 L26 2" stroke="#c9922a" stroke-width="1.5" fill="none"/><circle cx="2" cy="2" r="2" fill="#c9922a"/></svg>
+                <svg class="corner-ornament br" viewBox="0 0 28 28" fill="none"><path d="M2 26 L2 2 L26 2" stroke="#c9922a" stroke-width="1.5" fill="none"/><circle cx="2" cy="2" r="2" fill="#c9922a"/></svg>
+                <div class="kategori-img-area">
+                    <div class="photo-clip">
+                        <img class="cat-photo" src="image/Kesenian_Ketoprak_Jawa.jpg" alt="Kesenian"
+                             style="display: none;"
+                             onload="this.style.display='block'; this.nextElementSibling.style.display='none';">
+                        <div class="img-placeholder">
+                            <span class="img-placeholder-icon">&#9654;</span>
+                            <span>Isi src foto Kesenian</span>
+                        </div>
+                        <div class="img-fade"></div>
+                    </div>
+                    <img class="bingkai-overlay" src="image/bingkai_new-removebg-preview.png" alt="bingkai">
+                </div>
+                <div class="kategori-card-body">
+                    <h3 class="kategori-title">Kesenian</h3>
+                    <ul class="kategori-list">
+                        <li>Karawitan</li><li>Ketoprak</li><li>Wayang Orang</li><li>Tari Serimpi</li><li>Campursari</li>
+                    </ul>
+                    <button class="btn-jelajahi">Jelajahi &rarr;</button>
+                </div>
+            </div>
+
+            <!-- KARTU 2: KULINER -->
+            <div class="kategori-card" data-reveal="zoom-in" data-delay="200">
+                <svg class="corner-ornament tl" viewBox="0 0 28 28" fill="none"><path d="M2 26 L2 2 L26 2" stroke="#c9922a" stroke-width="1.5" fill="none"/><circle cx="2" cy="2" r="2" fill="#c9922a"/></svg>
+                <svg class="corner-ornament tr" viewBox="0 0 28 28" fill="none"><path d="M2 26 L2 2 L26 2" stroke="#c9922a" stroke-width="1.5" fill="none"/><circle cx="2" cy="2" r="2" fill="#c9922a"/></svg>
+                <svg class="corner-ornament bl" viewBox="0 0 28 28" fill="none"><path d="M2 26 L2 2 L26 2" stroke="#c9922a" stroke-width="1.5" fill="none"/><circle cx="2" cy="2" r="2" fill="#c9922a"/></svg>
+                <svg class="corner-ornament br" viewBox="0 0 28 28" fill="none"><path d="M2 26 L2 2 L26 2" stroke="#c9922a" stroke-width="1.5" fill="none"/><circle cx="2" cy="2" r="2" fill="#c9922a"/></svg>
+                <div class="kategori-img-area">
+                    <div class="photo-clip">
+                        <img class="cat-photo" src="image/gethuk.jpeg" alt="Kuliner"
+                             style="display: none;"
+                             onload="this.style.display='block'; this.nextElementSibling.style.display='none';">
+                        <div class="img-placeholder">
+                            <span class="img-placeholder-icon">&#9654;</span>
+                            <span>Isi src foto Kuliner</span>
+                        </div>
+                        <div class="img-fade"></div>
+                    </div>
+                    <img class="bingkai-overlay" src="image/bingkai_new-removebg-preview.png" alt="bingkai">
+                </div>
+                <div class="kategori-card-body">
+                    <h3 class="kategori-title">Kuliner</h3>
+                    <ul class="kategori-list">
+                        <li>Getuk</li><li>Tahu Gimbal</li><li>Garang Asem</li><li>Dawet Ayu</li><li>Mangut Lele</li>
+                    </ul>
+                    <button class="btn-jelajahi">Jelajahi &rarr;</button>
+                </div>
+            </div>
+
+            <!-- KARTU 3: PAKAIAN -->
+            <div class="kategori-card" data-reveal="flip-x" data-delay="300">
+                <svg class="corner-ornament tl" viewBox="0 0 28 28" fill="none"><path d="M2 26 L2 2 L26 2" stroke="#c9922a" stroke-width="1.5" fill="none"/><circle cx="2" cy="2" r="2" fill="#c9922a"/></svg>
+                <svg class="corner-ornament tr" viewBox="0 0 28 28" fill="none"><path d="M2 26 L2 2 L26 2" stroke="#c9922a" stroke-width="1.5" fill="none"/><circle cx="2" cy="2" r="2" fill="#c9922a"/></svg>
+                <svg class="corner-ornament bl" viewBox="0 0 28 28" fill="none"><path d="M2 26 L2 2 L26 2" stroke="#c9922a" stroke-width="1.5" fill="none"/><circle cx="2" cy="2" r="2" fill="#c9922a"/></svg>
+                <svg class="corner-ornament br" viewBox="0 0 28 28" fill="none"><path d="M2 26 L2 2 L26 2" stroke="#c9922a" stroke-width="1.5" fill="none"/><circle cx="2" cy="2" r="2" fill="#c9922a"/></svg>
+                <div class="kategori-img-area">
+                    <div class="photo-clip">
+                        <img class="cat-photo" src="image/pakaian adat.jpg" alt="Pakaian"
+                             style="display: none;"
+                             onload="this.style.display='block'; this.nextElementSibling.style.display='none';">
+                        <div class="img-placeholder">
+                            <span class="img-placeholder-icon">&#9654;</span>
+                            <span>Isi src foto Pakaian</span>
+                        </div>
+                        <div class="img-fade"></div>
+                    </div>
+                    <img class="bingkai-overlay" src="image/bingkai_new-removebg-preview.png" alt="bingkai">
+                </div>
+                <div class="kategori-card-body">
+                    <h3 class="kategori-title">Pakaian</h3>
+                    <ul class="kategori-list">
+                        <li>Surjan</li><li>Lurik</li><li>Kebaya Kartini</li><li>Kain Jarik</li><li>Iket Jawa</li>
+                    </ul>
+                    <button class="btn-jelajahi">Jelajahi &rarr;</button>
+                </div>
+            </div>
+
+            <!-- KARTU 4: ADAT & TRADISI -->
+            <div class="kategori-card" data-reveal="swing" data-delay="400">
+                <svg class="corner-ornament tl" viewBox="0 0 28 28" fill="none"><path d="M2 26 L2 2 L26 2" stroke="#c9922a" stroke-width="1.5" fill="none"/><circle cx="2" cy="2" r="2" fill="#c9922a"/></svg>
+                <svg class="corner-ornament tr" viewBox="0 0 28 28" fill="none"><path d="M2 26 L2 2 L26 2" stroke="#c9922a" stroke-width="1.5" fill="none"/><circle cx="2" cy="2" r="2" fill="#c9922a"/></svg>
+                <svg class="corner-ornament bl" viewBox="0 0 28 28" fill="none"><path d="M2 26 L2 2 L26 2" stroke="#c9922a" stroke-width="1.5" fill="none"/><circle cx="2" cy="2" r="2" fill="#c9922a"/></svg>
+                <svg class="corner-ornament br" viewBox="0 0 28 28" fill="none"><path d="M2 26 L2 2 L26 2" stroke="#c9922a" stroke-width="1.5" fill="none"/><circle cx="2" cy="2" r="2" fill="#c9922a"/></svg>
+                <div class="kategori-img-area">
+                    <div class="photo-clip">
+                        <img class="cat-photo" src="image/nyandaran.jfif" alt="Adat & Tradisi"
+                             style="display: none;"
+                             onload="this.style.display='block'; this.nextElementSibling.style.display='none';">
+                        <div class="img-placeholder">
+                            <span class="img-placeholder-icon">&#9654;</span>
+                            <span>Isi src foto Adat</span>
+                        </div>
+                        <div class="img-fade"></div>
+                    </div>
+                    <img class="bingkai-overlay" src="image/bingkai_new-removebg-preview.png" alt="bingkai">
+                </div>
+                <div class="kategori-card-body">
+                    <h3 class="kategori-title">Adat &amp; Tradisi</h3>
+                    <ul class="kategori-list">
+                        <li>Nyadran</li><li>Padusan</li><li>Dugderan</li><li>Ruwatan</li><li>Sedekah Laut</li>
+                    </ul>
+                    <button class="btn-jelajahi">Jelajahi &rarr;</button>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <div class="gold-separator"></div>
+
+    <!-- SECTION 4: CTA -->
+    <section class="row section-cta justify-content-center py-5">
+        <div class="col-sm-8">
+            <div class="cta-card p-0">
+                <div class="row p-4 g-0">
+                    <div class="col-sm-6 order-md-last text-center py-3" data-reveal="zoom-in">
+                        <img src="image/candi3.png" alt="AI Ilustrasi" class="ilustration-2 ilustration-glow">
+                    </div>
+                    <div class="col-sm-6 p-4">
+                        <h1 class="mb-4" style="font-family:'Cinzel',serif; color: var(--cream); font-size:1.7rem; line-height:1.4;"
+                            data-reveal="slide-up">Lestarikan Budaya Jawa Tengah Bersama Teknologi</h1>
+                        <p style="color: var(--text-body); font-family:'EB Garamond',serif; font-size:1.05rem;"
+                           data-reveal="blur-in" data-delay="100">
+                            Menggabungkan budaya khas Jawa Tengah dengan teknologi digital modern — mulai dari digitalisasi budaya, AI narator budaya, hingga peta interaktif wisata dan tradisi Jawa Tengah.
+                        </p>
+                        <button class="btn btn-warning mt-3" style="font-family:'Cinzel',serif; font-size:.8rem; letter-spacing:.08em;"
+                                data-reveal="fade-right" data-delay="200">Gabung Sekarang</button>
+                        <div class="ai-chip" data-reveal="fade-right" data-delay="300">
+                            <i class="bi bi-cpu-fill"></i>
+                            Didukung AI &middot; <span id="liveVisitor">1.247</span> pengunjung aktif
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="gold-separator"></div>
+
+    <!-- SECTION 5: FITUR -->
+    <section class="row section-fitur justify-content-center py-5">
+        <div class="col-sm-8">
+            <div class="text-center mb-5">
+                <h2 class="section-title-gold" style="font-size:1.8rem;"
+                    data-reveal="slide-up">Menggabungkan Budaya &amp; Teknologi</h2>
+                <p class="section-subtitle" data-reveal="blur-in" data-delay="100">Teknologi modern untuk melestarikan warisan leluhur</p>
+            </div>
+            <div class="row">
+                <div class="col-sm-6 text-center" data-reveal="swing">
+                    <img src="image/arca1-removebg-preview.png" alt="Arsip Digital" class="ilustration-3 ilustration-glow">
+                </div>
+                <div class="col-sm-6">
+                    <p class="text-uppercase" style="font-family:'Cinzel',serif; font-size:.75rem; letter-spacing:.12em; color: var(--text-muted);"
+                       data-reveal="fade-down">Platform Digital</p>
+                    <h2 style="font-family:'Cinzel',serif; color: var(--cream); font-size:1.6rem; margin-bottom:1rem;"
+                        data-reveal="fade-left" data-delay="100">Digitalisasi &amp; AI</h2>
+                    <p style="font-family:'EB Garamond',serif; font-size:1.05rem;"
+                       data-reveal="fade-left" data-delay="200">AI Narasi Budaya dan digitalisasi arsip beresolusi tinggi untuk mendokumentasikan setiap detail budaya.</p>
+                    <div class="mt-3" data-reveal="fade-left" data-delay="300">
+                        <div class="tech-progress-label"><span>Kesenian</span><span>87%</span></div>
+                        <div class="progress"><div class="progress-bar progress-bar-gold" style="--target-width:87%;"></div></div>
+                        <div class="tech-progress-label"><span>Kuliner</span><span>72%</span></div>
+                        <div class="progress"><div class="progress-bar" style="--target-width:72%; background: var(--gold);"></div></div>
+                        <div class="tech-progress-label"><span>Pakaian Adat</span><span>65%</span></div>
+                        <div class="progress"><div class="progress-bar" style="--target-width:65%; background: #8a6030;"></div></div>
+                    </div>
+                </div>
+            </div>
+            <div class="row my-5">
+                <div class="col-sm-6 text-center order-md-last" data-reveal="zoom-in">
+                    <img src="image/kipas.png" alt="Virtual Museum" class="ilustration-3 ilustration-glow mx-auto d-block">
+                </div>
+                <div class="col-sm-6">
+                    <p class="text-uppercase" style="font-family:'Cinzel',serif; font-size:.75rem; letter-spacing:.12em; color: var(--text-muted);"
+                       data-reveal="fade-down">Teknologi Terkini</p>
+                    <h2 style="font-family:'Cinzel',serif; color: var(--cream); font-size:1.6rem; margin-bottom:1rem;"
+                        data-reveal="slide-up" data-delay="100">Virtual Museum Jawa Tengah</h2>
+                    <p style="font-family:'EB Garamond',serif; font-size:1.05rem;"
+                       data-reveal="fade-right" data-delay="200">Jelajahi museum budaya secara virtual dengan teknologi 360&deg; dan Augmented Reality yang imersif dari mana saja.</p>
+                    <div class="row mt-3 g-2" data-reveal="fade-right" data-delay="300">
+                        <div class="col-4"><div class="stats-row"><div class="stat-counter" data-target="342">0</div><div class="stat-label">Artefak</div></div></div>
+                        <div class="col-4"><div class="stats-row"><div class="stat-counter" data-target="58">0</div><div class="stat-label">Upacara</div></div></div>
+                        <div class="col-4"><div class="stats-row"><div class="stat-counter" data-target="120">0</div><div class="stat-label">Resep</div></div></div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-6 text-center" data-reveal="fade-right">
+                    <img src="image/kepala wayang.png" alt="Edukasi" class="ilustration-3 ilustration-glow">
+                </div>
+                <div class="col-sm-6">
+                    <p class="text-uppercase" style="font-family:'Cinzel',serif; font-size:.75rem; letter-spacing:.12em; color: var(--text-muted);"
+                       data-reveal="fade-left">Edukasi Interaktif</p>
+                    <h2 style="font-family:'Cinzel',serif; color: var(--cream); font-size:1.6rem; margin-bottom:1rem;"
+                        data-reveal="fade-left" data-delay="100">Belajar Budaya dengan Cara Modern</h2>
+                    <p style="font-family:'EB Garamond',serif; font-size:1.05rem;"
+                       data-reveal="fade-left" data-delay="200">Modul pembelajaran, kuis interaktif, dan sertifikat digital untuk pelajar, mahasiswa, dan pecinta budaya dari seluruh Indonesia.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="gold-separator"></div>
+
+    <!-- SECTION 6: KUTIPAN PAHLAWAN -->
+    <section class="row section-quotes justify-content-center py-5">
+        <div class="col-sm-8">
+            <div class="text-center mb-5">
+                <h2 class="section-title-gold" style="font-size:1.8rem;"
+                    data-reveal="fade-up">Kata Mereka tentang Budaya Jawa Tengah</h2>
+                <div class="ornament-divider" style="max-width:400px; margin: 8px auto 0;" data-reveal="fade-in" data-delay="100">
+                    <div class="ornament-diamond"></div>
+                    <div class="ornament-diamond" style="width:5px;height:5px;opacity:.5;"></div>
+                    <div class="ornament-diamond"></div>
+                </div>
+            </div>
+            <div class="tab-content" id="nav-tabContent">
+                <div class="tab-pane fade show active" id="nav-home" role="tabpanel" tabindex="0">
+                    <div class="row align-items-center">
+                        <div class="col-sm-8" data-reveal="fade-right">
+                            <i class="bi bi-quote icon-quote"></i>
+                            <div class="quote mb-5">
+                                "Tiada awan di langit yang tetap selamanya. Tiada mungkin akan terus menerus terang cuaca. Sehabis malam gelap gulita lahir pagi membawa keindahan."
+                            </div>
+                        </div>
+                        <div class="col-sm-4 text-center" data-reveal="fade-left">
+                            <div class="portrait-frame-wrap mx-auto">
+                                <img class="portrait-photo" src="image/Raden Ajeng Kartini – Kompaspedia.jfif" alt="R.A. Kartini">
+                                <img class="frame-img" src="image/bingkai-removebg-preview.png" alt="">
+                            </div>
+                            <div class="portrait-nameplate mt-2">
+                                <p class="picture-tab-title mb-0">R.A. Kartini</p>
+                                <p class="picture-tab-desc mb-0">Pahlawan Nasional (Jepara)</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="tab-pane fade" id="nav-profile" role="tabpanel" tabindex="0">
+                    <div class="row align-items-center">
+                        <div class="col-sm-8">
+                            <i class="bi bi-quote icon-quote"></i>
+                            <div class="quote mb-5">
+                                "Robek-robeklah badanku, potong-potonglah jasad ini, tetapi jiwaku yang dilindungi benteng Merah Putih akan tetap hidup, tetap menuntut bela."
+                            </div>
+                        </div>
+                        <div class="col-sm-4 text-center">
+                            <div class="portrait-frame-wrap mx-auto">
+                                <img class="portrait-photo" src="image/jendral sudirman.jpeg" alt="Jenderal Soedirman">
+                                <img class="frame-img" src="image/bingkai-removebg-preview.png" alt="">
+                            </div>
+                            <div class="portrait-nameplate mt-2">
+                                <p class="picture-tab-title mb-0">Jenderal Soedirman</p>
+                                <p class="picture-tab-desc mb-0">Pahlawan Nasional (Purbalingga)</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="tab-pane fade" id="nav-contact" role="tabpanel" tabindex="0">
+                    <div class="row align-items-center">
+                        <div class="col-sm-8">
+                            <i class="bi bi-quote icon-quote"></i>
+                            <div class="quote mb-5">
+                                "Aku adalah pejuang! Sebagai pejuang, tugasku adalah berjuang. Soal kalah atau menang, itu bukan urusanku &mdash; karena tugasku adalah berjuang!"
+                            </div>
+                        </div>
+                        <div class="col-sm-4 text-center">
+                            <div class="portrait-frame-wrap mx-auto">
+                                <img class="portrait-photo" src="image/Pangeran diponegoror.jpeg" alt="Pangeran Diponegoro">
+                                <img class="frame-img" src="image/bingkai-removebg-preview.png" alt="">
+                            </div>
+                            <div class="portrait-nameplate mt-2">
+                                <p class="picture-tab-title mb-0">Pangeran Diponegoro</p>
+                                <p class="picture-tab-desc mb-0">Pahlawan Nasional</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <nav class="mt-5" data-reveal="fade-up">
+                    <div class="nav nav-tabs nav-fill" id="nav-tab" role="tablist" style="border-bottom: 1px solid var(--dark-border);">
+                        <button class="nav-link active" id="nav-home-tab" data-bs-toggle="tab" data-bs-target="#nav-home" type="button" role="tab">
+                            <p class="link-tab-title mb-1">R.A. Kartini</p>
+                            <p class="link-tab-desc">Pahlawan Nasional</p>
+                        </button>
+                        <button class="nav-link" id="nav-profile-tab" data-bs-toggle="tab" data-bs-target="#nav-profile" type="button" role="tab">
+                            <p class="link-tab-title mb-1">Jenderal Soedirman</p>
+                            <p class="link-tab-desc">Pahlawan Nasional</p>
+                        </button>
+                        <button class="nav-link" id="nav-contact-tab" data-bs-toggle="tab" data-bs-target="#nav-contact" type="button" role="tab">
+                            <p class="link-tab-title mb-1">Pangeran Diponegoro</p>
+                            <p class="link-tab-desc">Pahlawan Nasional</p>
+                        </button>
+                    </div>
+                </nav>
+            </div>
+        </div>
+    </section>
+
+    <div class="gold-separator"></div>
+
+    <!-- SECTION 7: FAQ -->
+    <section class="row section-faq justify-content-center py-5">
+        <div class="col-sm-8">
+            <div class="text-center mb-5">
+                <h2 class="section-title-gold" style="font-size:1.8rem;"
+                    data-reveal="fade-up">Pertanyaan Seputar Budaya Jawa Tengah</h2>
+            </div>
+            <div class="row">
+                <div class="col-sm-6 pe-3" data-reveal="fade-right">
+                    <div class="accordion" id="accordionLeft">
+                        <div class="accordion-item mb-2">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne">
+                                    Apa saja adat istiadat terkenal di Jawa Tengah?
+                                </button>
+                            </h2>
+                            <div id="collapseOne" class="accordion-collapse collapse" data-bs-parent="#accordionLeft">
+                                <div class="accordion-body">
+                                    <strong style="color: var(--gold-light);">Jawa Tengah memiliki beragam upacara adat.</strong> Di antaranya: <em>Sekaten</em>, <em>Mitoni</em>, <em>Larung Sesaji</em>, dan <em>Wiwitan</em>. Setiap upacara memiliki makna filosofis mendalam yang mencerminkan hubungan manusia dengan Tuhan, alam, dan sesama.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item mb-2">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo">
+                                    Apa makanan khas Jawa Tengah yang paling terkenal?
+                                </button>
+                            </h2>
+                            <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionLeft">
+                                <div class="accordion-body">
+                                    <strong style="color: var(--gold-light);">Kuliner khas Jawa Tengah sangat beragam.</strong> Yang paling terkenal antara lain: <em>Gudeg</em>, <em>Nasi Liwet</em>, <em>Tongseng</em>, <em>Sate Klathak</em>, hingga jajanan seperti <em>Wingko Babat</em>, <em>Klepon</em>, dan <em>Getuk</em>.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item mb-2">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree">
+                                    Apa pakaian adat khas Jawa Tengah?
+                                </button>
+                            </h2>
+                            <div id="collapseThree" class="accordion-collapse collapse" data-bs-parent="#accordionLeft">
+                                <div class="accordion-body">
+                                    <strong style="color: var(--gold-light);">Pakaian adat Jawa Tengah sangat kaya.</strong> Untuk perempuan: <em>kebaya</em> dengan kain batik motif parang atau sidomukti. Untuk laki-laki: <em>beskap</em>, kain batik, dan <em>blangkon</em> sebagai penutup kepala.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6 ps-3" data-reveal="fade-left">
+                    <div class="accordion" id="accordionRight">
+                        <div class="accordion-item mb-2">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour">
+                                    Bagaimana platform ini menggunakan teknologi untuk melestarikan budaya?
+                                </button>
+                            </h2>
+                            <div id="collapseFour" class="accordion-collapse collapse" data-bs-parent="#accordionRight">
+                                <div class="accordion-body">
+                                    <strong style="color: var(--gold-light);">PESAT menggunakan berbagai teknologi modern.</strong> Di antaranya: digitalisasi arsip beresolusi tinggi, AI narasi otomatis, virtual museum 360&deg;, AR untuk virtual try-on pakaian adat, serta sistem rekomendasi berbasis machine learning.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item mb-2">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFive">
+                                    Apakah platform ini bisa diakses oleh pelajar dan guru secara gratis?
+                                </button>
+                            </h2>
+                            <div id="collapseFive" class="accordion-collapse collapse" data-bs-parent="#accordionRight">
+                                <div class="accordion-body">
+                                    <strong style="color: var(--gold-light);">Ya, seluruh konten dasar dapat diakses gratis.</strong> Pelajar dan guru dapat mendaftar akun gratis untuk mengakses arsip digital, modul e-learning, dan kuis interaktif. Fitur premium tersedia dengan harga terjangkau bagi institusi pendidikan.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+</main>
+
+<!-- FIX FOOTER: kurangi padding vertikal (py-2 → py-1), my-5 → my-3, mb-5 → mb-4 -->
+<footer class="container-fluid py-1 footer-custom" data-reveal="fade-up">
+    <div class="row justify-content-center my-3">
+        <div class="col-sm-10">
+            <div class="row">
+                <div class="col-sm-3 mb-4">
+                    <!-- FIX LOGO: pakai d-flex align-items-center agar keris & PESAT sejajar sempurna -->
+                    <div class="mb-4 d-flex align-items-center gap-2">
+                        <img src="image/Keris logo rmv.png" alt="Logo" style="width:26px; height:26px; object-fit:contain; display:block;">
+                        <span style="font-family:'Cinzel',serif; color: var(--gold-light); font-size:1.1rem; font-weight:700; line-height:1;">JAWA TENGAH</span>
+                    </div>
+                    <p class="mb-3" style="font-size:.9rem;">Platform digital pelestarian budaya Jawa Tengah yang menggabungkan kearifan lokal dengan teknologi modern untuk generasi penerus bangsa.</p>
+                    <p class="mb-1" style="font-size:.85rem;">Email: <a href="mailto:RaihanBagaskara09@gmail.com" style="color: var(--gold);">RaihanBagaskara09@gmail.com</a></p>
+                    <p class="mb-3" style="font-size:.85rem;">WhatsApp: <a href="https://wa.me/08123456789" style="color: var(--gold);" target="_blank">089515345611</a></p>
+                    <div class="d-flex flex-row gap-3 mb-2">
+                        <a href="#" class="text-warning sosial-icon"><i class="bi bi-facebook"></i></a>
+                        <a href="#" class="text-warning sosial-icon"><i class="bi bi-instagram"></i></a>
+                        <a href="#" class="text-warning sosial-icon"><i class="bi bi-tiktok"></i></a>
+                        <a href="#" class="text-warning sosial-icon"><i class="bi bi-linkedin"></i></a>
+                        <a href="#" class="text-warning sosial-icon"><i class="bi bi-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="col-sm-2">
+                    <div class="mb-3 font-cinzel" style="color: var(--gold-light); font-size:.85rem; letter-spacing:.06em; text-transform:uppercase;">Budaya</div>
+                    <div class="mb-4 d-flex flex-column gap-1">
+                        <a href="#" class="menu-footer">Kesenian</a>
+                        <a href="#" class="menu-footer">Kuliner</a>
+                        <a href="#" class="menu-footer">Pakaian Adat</a>
+                        <a href="#" class="menu-footer">Adat &amp; Tradisi</a>
+                        <a href="#" class="menu-footer">Bahasa Jawa</a>
+                    </div>
+                    <div class="mb-3 font-cinzel" style="color: var(--gold-light); font-size:.85rem; letter-spacing:.06em; text-transform:uppercase;">Komunitas</div>
+                    <div class="d-flex flex-column gap-1">
+                        <a href="#" class="menu-footer">Forum Diskusi</a>
+                        <a href="#" class="menu-footer">Kontribusi Konten</a>
+                    </div>
+                </div>
+                <div class="col-sm-2">
+                    <div class="mb-3 font-cinzel" style="color: var(--gold-light); font-size:.85rem; letter-spacing:.06em; text-transform:uppercase;">Teknologi</div>
+                    <div class="mb-4 d-flex flex-column gap-1">
+                        <a href="#" class="menu-footer">Virtual Museum</a>
+                        <a href="#" class="menu-footer">Augmented Reality</a>
+                        <a href="#" class="menu-footer">AI Narasi Budaya</a>
+                        <a href="#" class="menu-footer">Arsip Digital</a>
+                    </div>
+                    <div class="mb-3 font-cinzel" style="color: var(--gold-light); font-size:.85rem; letter-spacing:.06em; text-transform:uppercase;">Edukasi</div>
+                    <div class="d-flex flex-column gap-1">
+                        <a href="#" class="menu-footer">E-Learning</a>
+                        <a href="#" class="menu-footer">Modul Interaktif</a>
+                        <a href="#" class="menu-footer">Kuis &amp; Sertifikat</a>
+                        <a href="#" class="menu-footer">Untuk Guru</a>
+                        <a href="#" class="menu-footer">Untuk Pelajar</a>
+                    </div>
+                </div>
+                <div class="col-sm-2">
+                    <div class="mb-3 font-cinzel" style="color: var(--gold-light); font-size:.85rem; letter-spacing:.06em; text-transform:uppercase;">Tentang Kami</div>
+                    <div class="mb-4 d-flex flex-column gap-1">
+                        <a href="#" class="menu-footer">Misi &amp; Visi</a>
+                        <a href="#" class="menu-footer">Tim Kami</a>
+                        <a href="#" class="menu-footer">Kemitraan</a>
+                        <a href="#" class="menu-footer">Kontak</a>
+                    </div>
+                    <div class="mb-3 font-cinzel" style="color: var(--gold-light); font-size:.85rem; letter-spacing:.06em; text-transform:uppercase;">Legal</div>
+                    <div class="d-flex flex-column gap-1">
+                        <a href="#" class="menu-footer">Kebijakan Privasi</a>
+                        <a href="#" class="menu-footer">Syarat &amp; Ketentuan</a>
+                        <a href="#" class="menu-footer">Hak Cipta</a>
+                    </div>
+                </div>
+                <div class="col-sm-2">
+                    <div class="mb-3 font-cinzel" style="color: var(--gold-light); font-size:.85rem; letter-spacing:.06em; text-transform:uppercase;">Unduh Aplikasi</div>
+                    <div class="d-flex flex-column gap-2 mb-3">
+                        <a href="#" style="display:inline-block; border:1px solid var(--dark-border); padding:8px 14px; color: var(--text-body); text-decoration:none; font-size:.8rem;">
+                            <i class="bi bi-google-play me-2" style="color: var(--gold);"></i>Google Play
+                        </a>
+                        <a href="#" style="display:inline-block; border:1px solid var(--dark-border); padding:8px 14px; color: var(--text-body); text-decoration:none; font-size:.8rem;">
+                            <i class="bi bi-apple me-2" style="color: var(--gold);"></i>App Store
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <hr style="border-color: var(--dark-border); border-width: 1px; opacity:1; margin-bottom: 12px;">
+            <!-- FIX: hapus "Powered By Studentday Web Design · AI Enhanced", copyright center -->
+            <div class="row" style="font-size:.82rem; color: var(--text-muted); padding-bottom: 12px;">
+                <div class="col-12 text-center">Copyright &copy;2026 PESAT &mdash; Platform Digital Budaya Jawa Tengah. All rights reserved.</div>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<script src="bootstrap-5.3.8-dist/js/bootstrap.bundle.min.js"></script>
+<script>
+    /* ==============================
+       TYPING EFFECT — HERO
+       ============================== */
+    const words = ['Budaya Jawa Tengah','Kesenian Tradisional','Kuliner Khas','Pakaian Adat','Adat & Tradisi'];
+    let wi = 0, ci = 0, del = false;
+    const tel = document.getElementById('heroTyping');
+    function typeEffect() {
+        const cur = words[wi];
+        tel.textContent = del ? cur.substring(0, ci - 1) : cur.substring(0, ci + 1);
+        del ? ci-- : ci++;
+        if (!del && ci === cur.length) { del = true; setTimeout(typeEffect, 1800); return; }
+        if (del && ci === 0) { del = false; wi = (wi + 1) % words.length; }
+        setTimeout(typeEffect, del ? 55 : 95);
+    }
+    typeEffect();
+
+    /* ==============================
+       SEARCH
+       ============================== */
+    const budayaData = [
+        /* Bahasa & Sastra */
+        'Bahasa Jawa dialek Solo','Bahasa Jawa dialek Banyumasan','Bahasa Jawa Ngapak','Bahasa Jawa dialek Pantura',
+        'Aksara Jawa','Hanacaraka','Sastra Jawa klasik','Serat Wedhatama','Serat Wulangreh','Serat Centhini',
+        'Babad Tanah Jawi','Tembang macapat','Geguritan','Parikan','Dongeng rakyat Jawa Tengah',
+        'Cerita Roro Jonggrang','Legenda Aji Saka','Legenda Baru Klinthing','Cerita Jaka Tarub','Cerita Timun Mas',
+        /* Seni Pertunjukan */
+        'Wayang Kulit','Wayang Wong','Wayang Golek Menak','Wayang Beber','Ketoprak','Kuda Lumping','Jaran Kepang',
+        'Tari Gambyong','Tari Serimpi','Tari Bedhaya','Tari Bambangan Cakil','Tari Bondan','Tari Topeng Ireng',
+        'Tari Lengger Banyumas','Tari Gambang Semarang','Ebeg Banyumasan','Sintren','Barongan Blora',
+        'Kubro Siswo','Campursari','Karawitan','Gamelan Jawa','Gejog Lesung','Calung Banyumasan',
+        'Rebana','Laras Slendro','Laras Pelog','Srandul','Opak Abor','Angguk','Sholawatan Jawa',
+        /* Musik Tradisional */
+        'Gamelan','Gong','Kenong','Bonang','Saron','Gender','Gambang','Kendang','Rebab','Suling Bambu',
+        'Calung','Bedug','Kompang',
+        /* Upacara Adat & Tradisi */
+        'Sekaten','Grebeg Maulud','Grebeg Syawal','Grebeg Besar','Kirab Pusaka','Sedekah Laut','Sedekah Bumi',
+        'Nyadran','Sadranan','Ruwatan','Mitoni','Tingkeban','Tedhak Siten','Brokohan','Selapanan',
+        'Midodareni','Siraman','Malam Satu Suro','Dugderan Semarang','Syawalan','Apitan','Padusan',
+        'Suronan','Tradisi Saparan','Wiwitan Panen','Kenduren','Tahlilan','Kupatan','Larungan','Bancakan',
+        'Merti Desa','Rejeban','Baritan','Ganti Langse Makam Sunan','Jamasan Pusaka',
+        /* Rumah Adat & Arsitektur */
+        'Rumah Joglo','Rumah Limasan','Rumah Panggang Pe','Rumah Tajug','Keraton Surakarta',
+        'Pura Mangkunegaran','Lawang Sewu','Masjid Agung Demak','Candi Borobudur','Candi Prambanan',
+        'Candi Gedong Songo','Candi Sukuh','Candi Cetho','Candi Mendut','Candi Pawon',
+        'Benteng Vastenburg','Kota Lama Semarang','Masjid Menara Kudus','Klenteng Sam Poo Kong','Gapura Paduraksa Jawa',
+        /* Kerajinan Tradisional */
+        'Batik Solo','Batik Pekalongan','Batik Lasem','Batik Banyumas','Batik Semarangan','Batik Salem',
+        'Batik Kudus','Batik Tegal','Batik Sragen','Batik Wonogiren','Batik Tulis','Batik Cap',
+        'Keris Jawa','Ukiran Jepara','Gerabah Klampok','Gerabah Banyumulek','Anyaman Bambu',
+        'Wayang Kulit Kerajinan','Topeng Kayu','Tenun Troso','Kerajinan Kuningan','Kerajinan Tembaga Tumang',
+        'Kerajinan Perak','Kerajinan Rotan','Kerajinan Janur','Payung Kertas Tradisional',
+        'Blangkon','Lurik Klaten','Besek Bambu',
+        /* Pakaian Adat */
+        'Kebaya Jawa','Kebaya Kartini','Beskap','Jawi Jangkep','Jarik','Kain Jarik','Kemben',
+        'Blangkon Solo','Blangkon Banyumasan','Selendang','Surjan','Lurik',
+        /* Senjata Tradisional */
+        'Keris','Tombak','Wedhung','Kujang Jawa','Pedang Tradisional Jawa',
+        /* Makanan Tradisional */
+        'Lumpia Semarang','Gudeg Solo','Nasi Liwet Solo','Soto Kudus','Soto Semarang','Soto Sokaraja',
+        'Mendoan','Tempe Kemul','Getuk','Getuk Goreng','Wingko Babat','Tahu Gimbal','Garang Asem',
+        'Mangut Lele','Brekecek','Dawet Ayu','Dawet Ireng','Jenang Kudus','Jenang Lot','Sate Kere',
+        'Tengkleng','Selat Solo','Cabuk Rambak','Pecel Madiun gaya Solo','Megono','Nasi Gandul',
+        'Sego Megono','Gethuk Trio','Intip','Serabi Solo','Bandeng Presto','Wajik','Klepon',
+        'Carica Dieng','Opak','Growol','Grontol','Lontong Tahu','Sagon','Jadah','Tiwul','Cenil',
+        /* Permainan Tradisional */
+        'Egrang','Gobak Sodor','Engklek','Congklak','Dakon','Bentengan','Jamuran','Bekel',
+        'Gasing Bambu','Layang-layang Tradisional','Cublak-cublak Suweng',
+        /* Nilai & Filosofi */
+        'Unggah-ungguh Jawa','Tata Krama Jawa','Gotong Royong','Tepa Selira','Andhap Asor',
+        'Nrimo Ing Pandum','Memayu Hayuning Bawana','Hamemayu Hayuning Bangsa',
+        'Alon-alon Waton Kelakon','Sangkan Paraning Dumadi',
+        /* Tokoh & Pusat Budaya */
+        'Sunan Kalijaga','Sunan Kudus','Sunan Muria','Sunan Bonang','Keraton Surakarta',
+        'Kadipaten Mangkunegaran','Demak','Kota Batik Pekalongan','Sentra Ukir Jepara','Kawasan Dieng'
+    ];
+    function cariiBudaya(val) {
+        const r = document.getElementById('searchResult');
+        if (!val.trim()) { r.textContent = ''; return; }
+        const f = budayaData.filter(b => b.toLowerCase().includes(val.toLowerCase()));
+        r.innerHTML = f.length > 0
+            ? `<span style="color:#4eff91;"><i class="bi bi-check-circle-fill me-1"></i>Ditemukan: <strong>${f.slice(0,4).join(', ')}${f.length>4?' +' + (f.length-4) + ' lainnya':''}</strong></span>`
+            : `<span style="color:#8a7050;"><i class="bi bi-info-circle me-1"></i>Tidak ditemukan. Coba kata kunci lain.</span>`;
+    }
+
+    /* ==============================
+       COUNTER ANIMATION
+       ============================== */
+    let counterDone = false;
+    function animateCounter(el) {
+        const target = parseInt(el.dataset.target);
+        let current = 0;
+        const step = Math.ceil(target / 60);
+        const timer = setInterval(() => {
+            current += step;
+            if (current >= target) { el.textContent = target; clearInterval(timer); }
+            else el.textContent = current;
+        }, 20);
+    }
+    const counterObs = new IntersectionObserver((entries) => {
+        entries.forEach(e => {
+            if (e.isIntersecting && !counterDone) {
+                counterDone = true;
+                document.querySelectorAll('.stat-counter').forEach(animateCounter);
+            }
+        });
+    }, { threshold: 0.5 });
+    const statsEl = document.querySelector('.stats-row');
+    if (statsEl) counterObs.observe(statsEl);
+
+    /* ==============================
+       ANIMATED PROGRESS BARS ON SCROLL
+       ============================== */
+    const progressObs = new IntersectionObserver((entries) => {
+        entries.forEach(e => {
+            if (e.isIntersecting) {
+                e.target.querySelectorAll('.progress-bar').forEach(bar => {
+                    bar.classList.add('animated');
+                });
+                progressObs.unobserve(e.target);
+            }
+        });
+    }, { threshold: 0.4 });
+    document.querySelectorAll('.progress').forEach(p => progressObs.observe(p.parentElement));
+
+    /* ==============================
+       SCROLL REVEAL — BIDIRECTIONAL
+       ============================== */
+    const revealObs = new IntersectionObserver((entries) => {
+        entries.forEach(e => {
+            if (e.isIntersecting) {
+                e.target.classList.remove('hiding');
+                e.target.classList.add('revealed');
+            } else {
+                e.target.classList.add('hiding');
+                e.target.classList.remove('revealed');
+                setTimeout(() => {
+                    if (!e.target.classList.contains('revealed')) {
+                        e.target.classList.remove('hiding');
+                    }
+                }, 400);
+            }
+        });
+    }, { threshold: 0.10, rootMargin: '0px 0px -30px 0px' });
+
+    document.querySelectorAll('[data-reveal]').forEach(el => revealObs.observe(el));
+
+    /* ==============================
+       LIVE VISITOR COUNTER
+       ============================== */
+    const liveEl = document.getElementById('liveVisitor');
+    if (liveEl) {
+        setInterval(() => {
+            const c = parseInt(liveEl.textContent.replace(/[.,]/g, ''));
+            const next = Math.max(1200, c + Math.floor(Math.random() * 5) - 2);
+            liveEl.textContent = next.toLocaleString('id-ID');
+        }, 3000);
+    }
+
+    /* Popovers */
+    document.querySelectorAll('[data-bs-toggle="popover"]').forEach(el => new bootstrap.Popover(el));
+</script>
+</body>
+</html>
